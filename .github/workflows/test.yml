@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD
 
 on:
   push:
@@ -13,3 +13,21 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t my-app .
+
+  deploy-dev:
+    if: github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Dev deploy
+        run: echo "Deploy to DEV 🚧"
+
+  deploy-prod:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Prod deploy
+        run: echo "Deploy to PROD 🚀"
