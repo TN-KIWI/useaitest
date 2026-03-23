@@ -1,15 +1,15 @@
-name: Test Workflow
+name: CI
 
 on:
   push:
     branches: [dev, main]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run test
-        run: echo "Hello GitHub Actions 🚀"
+      - name: Build Docker image
+        run: docker build -t my-app .
