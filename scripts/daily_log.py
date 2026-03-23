@@ -8,5 +8,6 @@ status = "Success"
 
 entry = f"- {today}\n  - 作業内容: TODO\n  - ブランチ: {branch}\n  - Actions結果: {status}\n"
 
+log_path.parent.mkdir(parents=True, exist_ok=True)
 with open(log_path, "a") as f:
     f.write(entry)
