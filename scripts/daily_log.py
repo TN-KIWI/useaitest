@@ -1,8 +1,9 @@
 import datetime
 import os
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
-today = datetime.date.today()
+today = datetime.datetime.now(ZoneInfo("Asia/Tokyo")).date()
 output_path = os.getenv("DAILY_LOG_OUTPUT_PATH", "tmp/daily_log.md")
 log_path = Path(output_path)
 branch = os.getenv("GITHUB_REF_NAME", "dev")

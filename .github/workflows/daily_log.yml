@@ -8,6 +8,7 @@ jobs:
   log:
     runs-on: ubuntu-latest
     env:
+      TZ: Asia/Tokyo
       DAILY_LOG_OUTPUT_PATH: tmp/daily_log.md
 
     steps:
